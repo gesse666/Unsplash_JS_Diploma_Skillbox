@@ -4,14 +4,14 @@ import GetCode from "./api";
 import { GetToken } from "./api";
 import { fetchProducts } from "./productActions";
 
-class Home extends React.Component {
+export default class Auth extends React.Component {
   componentDidMount() {
     // this.props.dispatch(fetchProducts());
 
     // window.location.assign("https://www.google.com");
     // const code = window.location.search.split("code=")[1];
 
-      GetCode()
+
     // if (code) {
     //   const fakePost = async () => {
     //     try {
@@ -50,30 +50,31 @@ class Home extends React.Component {
   //  }
 
   render() {
-    const { error, loading, products } = this.props;
+    // const { error, loading, products } = this.props;
 
-    if (error) {
-      return <div>Error! {error.message}</div>;
-    }
+    // if (error) {
+    //   return <div>Error! {error.message}</div>;
+    // }
 
-    if (loading) {
-      return <div>Loading...</div>;
-    }
+    // if (loading) {
+    //   return <div>Loading...</div>;
+    // }
 
     return (
-      <ul>
-        {products.map((product) => (
-          <li key={product.id}>{product.name}</li>
-        ))}
-      </ul>
+    //   <ul>
+    //     {products.map((product) => (
+    //       <li key={product.id}>{product.name}</li>
+    //     ))}
+    //   </ul>
+    <h1>auth</h1>
     );
   }
 }
 
-const mapStateToProps = (state) => ({
-  products: state.products.items,
-  loading: state.products.loading,
-  error: state.products.error
-});
+// const mapStateToProps = (state) => ({
+//   products: state.products.items,
+//   loading: state.products.loading,
+//   error: state.products.error
+// });
 
-export default connect(mapStateToProps)(Home);
+

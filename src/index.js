@@ -1,6 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import Home from "./Home";
+import Auth from "./Auth";
 import { createStore, applyMiddleware } from "redux";
 import { Provider } from "react-redux";
 import thunk from "redux-thunk";
@@ -47,7 +48,7 @@ function App() {
             renders the first one that matches the current URL. */}
         <Switch>
           <Route path="/auth">
-            <About />
+            <Auth />
           </Route>
           <Route path="/users">
             <Users />
