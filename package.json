@@ -1,5 +1,5 @@
 {
-  "name": "fetch-redirect-last",
+  "name": "diplomaaa",
   "version": "1.0.0",
   "description": "",
   "keywords": [],
@@ -11,6 +11,7 @@
     "react-router-dom": "^5.2.0",
     "react-scripts": "2.0.3",
     "redux": "4.0.1",
+    "redux-devtools-extension": "2.13.9",
     "redux-thunk": "2.3.0"
   },
   "devDependencies": {},

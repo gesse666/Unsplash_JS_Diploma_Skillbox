@@ -1,17 +1,18 @@
 import React from "react";
 import { connect } from "react-redux";
-import GetCode from "./api";
-import { GetToken } from "./api";
+// import GetCode from "./api";
+// import { GetToken } from "./api";
 import { fetchProducts } from "./productActions";
+import { fetchCode } from "./actions/unsplash";
 
 class Home extends React.Component {
   componentDidMount() {
+    this.props.fetchCode(
+      "https://unsplash.com/oauth/authorize?client_id=Fk9XeNjOfV6yHM2OUB7EZaS9CAb1dYcnEvIDjjbca-M&redirect_uri=http://localhost:3000/auth&response_type=code&scope=public+write_likes"
+    );
     // this.props.dispatch(fetchProducts());
 
-    // window.location.assign("https://www.google.com");
-    // const code = window.location.search.split("code=")[1];
-
-      GetCode()
+    // GetCode()
     // if (code) {
     //   const fakePost = async () => {
     //     try {
@@ -40,8 +41,7 @@ class Home extends React.Component {
     //   };
     //   fakePost ();
     // }
-    GetToken ();
-
+    // GetToken();
   }
   // }
 
@@ -60,20 +60,18 @@ class Home extends React.Component {
       return <div>Loading...</div>;
     }
 
-    return (
-      <ul>
-        {products.map((product) => (
-          <li key={product.id}>{product.name}</li>
-        ))}
-      </ul>
-    );
+    return <ul></ul>;
   }
 }
 
-const mapStateToProps = (state) => ({
-  products: state.products.items,
-  loading: state.products.loading,
-  error: state.products.error
+const mapDispatchToProps = (dispatch) => ({
+  fetchCode: (url) => {
+    dispatch(fetchCode(url));
+  }
 });
 
-export default connect(mapStateToProps)(Home);
+const mapStateToProps = (state) => ({
+  code: state.unsplashReducer.code
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(Home);

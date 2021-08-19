@@ -1,17 +1,14 @@
 import React from "react";
 import { connect } from "react-redux";
-import GetCode from "./api";
-import { GetToken } from "./api";
-import { fetchProducts } from "./productActions";
+// import GetCode from "./api";
+// import { GetToken } from "./api";
+// import { fetchProducts } from "./productActions";
 
 export default class Auth extends React.Component {
   componentDidMount() {
     // this.props.dispatch(fetchProducts());
-
     // window.location.assign("https://www.google.com");
     // const code = window.location.search.split("code=")[1];
-
-
     // if (code) {
     //   const fakePost = async () => {
     //     try {
@@ -40,8 +37,7 @@ export default class Auth extends React.Component {
     //   };
     //   fakePost ();
     // }
-    GetToken ();
-
+    // GetToken ();
   }
   // }
 
@@ -61,12 +57,12 @@ export default class Auth extends React.Component {
     // }
 
     return (
-    //   <ul>
-    //     {products.map((product) => (
-    //       <li key={product.id}>{product.name}</li>
-    //     ))}
-    //   </ul>
-    <h1>auth</h1>
+      //   <ul>
+      //     {products.map((product) => (
+      //       <li key={product.id}>{product.name}</li>
+      //     ))}
+      //   </ul>
+      <h1>auth</h1>
     );
   }
 }
@@ -76,5 +72,3 @@ export default class Auth extends React.Component {
 //   loading: state.products.loading,
 //   error: state.products.error
 // });
-
-

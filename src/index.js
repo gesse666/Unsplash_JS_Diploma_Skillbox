@@ -5,28 +5,17 @@ import Auth from "./Auth";
 import { createStore, applyMiddleware } from "redux";
 import { Provider } from "react-redux";
 import thunk from "redux-thunk";
-import {
-  BrowserRouter as Router,
-  Switch,
-  Route,
-  Link
-} from "react-router-dom";
-import rootReducer from "./rootReducer";
+import { composeWithDevTools } from "redux-devtools-extension";
+import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 
-
-import "./styles.css";
+import rootReducer from "./reducers/rootReducer";
 
 const store = createStore(
   rootReducer,
-  applyMiddleware(thunk)
+  composeWithDevTools(applyMiddleware(thunk))
 );
 
 function App() {
-  // return (
-  //   <div className="App">
-  //     <ProductList />
-  //   </div>
-  // );
   return (
     <Router>
       <div>
@@ -43,9 +32,6 @@ function App() {
             </li>
           </ul>
         </nav>
-
-        {/* A <Switch> looks through its children <Route>s and
-            renders the first one that matches the current URL. */}
         <Switch>
           <Route path="/auth">
             <Auth />
@@ -59,10 +45,8 @@ function App() {
         </Switch>
       </div>
     </Router>
-  ); 
+  );
 }
-
-
 
 function About() {
   return <h2>Auth</h2>;

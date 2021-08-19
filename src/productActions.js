@@ -36,7 +36,7 @@ export function fetchProducts() {
     fetch("https://unsplash.com/oauth/authorize", {
       // method: "GET",
       client_id: "Fk9XeNjOfV6yHM2OUB7EZaS9CAb1dYcnEvIDjjbca-M",
-      redirect_uri: "https://29vfr.csb.app/oath",
+      redirect_uri: "https://4kpk1.csb.app/auth",
       response_type: "code",
       scope: "public+write_likes"
     })

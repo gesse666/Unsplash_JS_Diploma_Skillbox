@@ -1,6 +1,6 @@
 import { combineReducers } from "redux";
-import products from "./productReducer";
+import { unsplashReducer } from "./unsplashReducer";
 
 export default combineReducers({
-  products
+  unsplashReducer
 });
