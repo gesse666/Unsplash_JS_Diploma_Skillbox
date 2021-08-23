@@ -1,65 +1,28 @@
-import React from "react";
-import ReactDOM from "react-dom";
-import Home from "./Home";
-import Auth from "./Auth";
-import { createStore, applyMiddleware } from "redux";
-import { Provider } from "react-redux";
+import React from 'react'
+import ReactDOM from 'react-dom'
+import { Provider } from 'react-redux'
+// import { store } from './store/configureStore'
+import App from './containers/App' // изменили путь
 import thunk from "redux-thunk";
 import { composeWithDevTools } from "redux-devtools-extension";
-import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+import { createStore, applyMiddleware } from "redux";
+import {rootReducer} from "./reducers/index";
 
-import rootReducer from "./reducers/rootReducer";
+
+import registerServiceWorker from './registerServiceWorker'
+
+import './index.css'
 
 const store = createStore(
   rootReducer,
   composeWithDevTools(applyMiddleware(thunk))
 );
 
-function App() {
-  return (
-    <Router>
-      <div>
-        <nav>
-          <ul>
-            <li>
-              <Link to="/">Home</Link>
-            </li>
-            <li>
-              <Link to="/auth">Auth</Link>
-            </li>
-            <li>
-              <Link to="/users">Users</Link>
-            </li>
-          </ul>
-        </nav>
-        <Switch>
-          <Route path="/auth">
-            <Auth />
-          </Route>
-          <Route path="/users">
-            <Users />
-          </Route>
-          <Route path="/">
-            <Home />
-          </Route>
-        </Switch>
-      </div>
-    </Router>
-  );
-}
 
-function About() {
-  return <h2>Auth</h2>;
-}
-
-function Users() {
-  return <h2>Users</h2>;
-}
-
-const rootElement = document.getElementById("root");
 ReactDOM.render(
   <Provider store={store}>
     <App />
   </Provider>,
-  rootElement
-);
+  document.getElementById('root')
+)
+registerServiceWorker()
